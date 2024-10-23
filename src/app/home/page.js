@@ -27,7 +27,7 @@ const Home = () => {
     
       {randomClass && (
         <div className="flex justify-center mb-8">
-          <div className="relative w-full max-w-[450px] rounded-lg overflow-hidden shadow-lg">
+          <div className="relative w-full  rounded- overflow-hidden ">
           
             <div className="w-full h-[540px] z-0">
               <Image
