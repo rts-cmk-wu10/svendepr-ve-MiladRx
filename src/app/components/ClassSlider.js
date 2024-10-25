@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const ClassSlider = ({ classes }) => {
   return (
@@ -13,16 +14,17 @@ const ClassSlider = ({ classes }) => {
             key={classItem.id}
             className="relative w-[130px] h-[145px] flex-shrink-0 rounded-lg overflow-hidden shadow-lg"
           >
-            
-            <Image
-              src={classItem.asset.url} 
-              alt={classItem.className}
-              layout="fill"
-              objectFit="cover"
-              className="absolute top-0 left-0 w-full h-full object-cover"
-            />
-
            
+            <Link href={`/details/${classItem.id}`}>
+              <Image
+                src={classItem.asset.url}
+                alt={classItem.className}
+                layout="fill"
+                objectFit="cover"
+                className="absolute top-0 left-0 w-full h-full object-cover"
+              />
+            </Link>
+
             <div
               className="absolute bottom-0 w-full bg-yellow-500 text-black px-3 py-2 flex justify-center items-center h-[45px] rounded-tr-[30px]"
               style={{ fontFamily: 'var(--font-poppins)' }}
