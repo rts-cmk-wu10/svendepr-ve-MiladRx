@@ -1,10 +1,10 @@
 'use client';
 import React from 'react';
-import { FiArrowLeft, FiSearch } from 'react-icons/fi'; 
-import BackHeader from '../components/BackHeader';
+import {  FiSearch } from 'react-icons/fi'; 
 import ClassSlider from '../components/ClassSlider'; 
 import TrainerComponent from '../components/TrainerComponent'; 
 import useFetch from '../hooks/useFetch'; 
+import BackHeader from '../components/BackHeaderGrey';
 
 const SearchPage = () => {
  
@@ -12,7 +12,8 @@ const SearchPage = () => {
   const { data: trainers, isLoading: loadingTrainers, error: errorTrainers } = useFetch('http://localhost:4000/api/v1/trainers');
 
   return (
-    <div className="min-h-screen p-4 bg-white">
+    <div className="min-h-screen p-4 bg-white" style={{ fontFamily: 'var(--font-poppins)' }}>
+        <h1 className="text-2xl ml-10 -mt-1 pb-6  "  >Search</h1>
 
       <BackHeader />
 

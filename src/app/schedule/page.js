@@ -1,25 +1,42 @@
 "use client";
-import React from 'react';
-
-import Header from '../components/Header';
+import React, { useEffect, useState } from 'react';
+import BackHeader from '../components/BackHeaderGrey';
+import ClassScheduleCard from '../components/ClassScheduleCard';
 
 const Schedule = () => {
-  return (
-    <div className="p-6 font-sans">
+  const [classes, setClasses] = useState([]);
+
+  useEffect(() => {
     
-        <Header />
+    const storedClasses = [];
+    Object.keys(localStorage).forEach((key) => {
+      if (key.startsWith('class_')) {
+        const classData = JSON.parse(localStorage.getItem(key));
+        storedClasses.push(classData);
+      }
+    });
+    setClasses(storedClasses);
+  }, []);
 
-     
-      <div className="border rounded-lg p-4 mb-6 shadow-md">
-        <h2 className="text-xl font-bold">Yoga Flow Workout</h2>
-        <p className="text-gray-600">Monday - 19.30</p>
-      </div>
+  return (
+    <div className="p-6 " style={{ fontFamily: 'var(--font-poppins)' }}>
+      <BackHeader />
+      <h1 className="text-2xl ml-7 -mt-3 pb-6 ">My Schedule</h1>
 
-  
-      <div className="border rounded-lg p-4 shadow-md">
-        <h2 className="text-xl font-bold">Lower Abs Workout</h2>
-        <p className="text-gray-600">Wednesday - 17.00</p>
-      </div>
+      {classes.length > 0 ? (
+  classes.map((classItem, index) => (
+    <ClassScheduleCard
+      key={classItem.id || index} 
+      id={classItem.id || index}  
+      className={classItem.className}
+      classDay={classItem.classDay}
+      classTime={classItem.classTime}
+    />
+  ))
+) : (
+  <p className="text-gray-500 mt-4">No classes scheduled.</p>
+)}
+
     </div>
   );
 };

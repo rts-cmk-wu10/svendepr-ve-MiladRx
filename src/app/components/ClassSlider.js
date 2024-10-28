@@ -5,7 +5,7 @@ import Link from 'next/link';
 const ClassSlider = ({ classes }) => {
   return (
     <section>
-      <h2 className="text-xl font-bold mb-4" style={{ fontFamily: 'var(--font-poppins)' }}>
+      <h2 className="text-2xl font-bold mb-4" >
         Classes for you
       </h2>
       <div className="flex space-x-4 overflow-x-scroll no-scrollbar">

@@ -17,12 +17,12 @@ const BackHeader = () => {
 
   return (
     <>
-      
+
       <header className="fixed top-0 left-0 w-full flex justify-between items-center p-4 bg-transparent z-50">
-        <button onClick={handleBack} className="text-white focus:outline-none">
-          <FiArrowLeft className="h-8 w-8" />
+        <button onClick={handleBack} className="text-gray-400 focus:outline-none">
+          <FiArrowLeft className="h-7 w-8" />
         </button>
-        <button onClick={toggleNav} className="text-white focus:outline-none">
+        <button onClick={toggleNav} className="text-gray-500 focus:outline-none">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-6 w-6"

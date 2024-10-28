@@ -11,7 +11,7 @@ const Header = () => {
     <>
      
       <header className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-bold">Popular classes</h1>
+        <h1 className="text-2xl font-semibold">Popular classes</h1>
         <button onClick={toggleNav} className="text-gray-700 focus:outline-none">
           <svg
             xmlns="http://www.w3.org/2000/svg"
