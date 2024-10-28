@@ -47,24 +47,24 @@ const Header = () => {
      
         <ul className="flex flex-col items-center justify-start h-full pt-48 space-y-10">
           <li>
-            <a href="/home" className="text-2xl font-semibold hover:underline">
+            <Link href="/home" className="text-2xl font-semibold hover:underline">
               Home
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/search" className="text-2xl font-semibold hover:underline">
+            <Link href="/search" className="text-2xl font-semibold hover:underline">
               Search
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/schedule" className="text-2xl font-semibold hover:underline">
+            <Link href="/schedule" className="text-2xl font-semibold hover:underline">
               My Schedule
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/" className="text-2xl font-semibold hover:underline">
+            <Link href="/" className="text-2xl font-semibold hover:underline">
               Log out
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>
