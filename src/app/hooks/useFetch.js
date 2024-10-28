@@ -7,17 +7,15 @@ const useFetch = (url) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      setIsLoading(true);
       try {
         const response = await fetch(url);
-        if (!response.ok) {
-          throw new Error('Failed to fetch data');
-        }
+        if (!response.ok) throw new Error('Failed to fetch data');
+        
         const result = await response.json();
         setData(result);
-        setIsLoading(false);
       } catch (error) {
         setError(error.message);
+      } finally {
         setIsLoading(false);
       }
     };

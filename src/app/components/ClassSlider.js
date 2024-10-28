@@ -5,7 +5,7 @@ import Link from 'next/link';
 const ClassSlider = ({ classes }) => {
   return (
     <section>
-      <h2 className="text-2xl font-bold mb-4" >
+      <h2 className="text-2xl font-bold mb-4">
         Classes for you
       </h2>
       <div className="flex space-x-4 overflow-x-scroll no-scrollbar">
@@ -14,14 +14,12 @@ const ClassSlider = ({ classes }) => {
             key={classItem.id}
             className="relative w-[130px] h-[145px] flex-shrink-0 rounded-lg overflow-hidden shadow-lg"
           >
-           
             <Link href={`/details/${classItem.id}`}>
               <Image
                 src={classItem.asset.url}
                 alt={classItem.className}
                 layout="fill"
-                objectFit="cover"
-                className="absolute top-0 left-0 w-full h-full object-cover"
+                className="absolute top-0 left-0 w-full h-full object-cover" 
               />
             </Link>
 

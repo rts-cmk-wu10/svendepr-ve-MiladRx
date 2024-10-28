@@ -78,7 +78,7 @@ function ClassDetails() {
               <div className="flex items-center space-x-4"> 
                 <div className="w-20 h-20 rounded-md overflow-hidden">
                   <img
-                    src={trainerData?.asset?.url || '/assets/trainer-placeholder.png'}
+                    src={trainerData?.asset?.url}
                     alt={trainerData?.trainerName}
                     className="object-cover w-full h-full"
                   />
