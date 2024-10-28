@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { FiArrowLeft } from 'react-icons/fi';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 const BackHeader = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
