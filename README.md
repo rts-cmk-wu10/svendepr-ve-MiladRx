@@ -1,36 +1,125 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# **Belive Fitness**
+## **Milad Roubei**
+### **Klasse: WU10**
 
-## Getting Started
 
-First, run the development server:
+### Tech-stack:
+Tech-stack
+HTML (JSX)
+CSS
+Tailwind CSS
+JavaScript
+Next.js
+### Teknisk Dokumentation:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+HTML (JSX):
+
+Jeg har brugt HTML til at strukturere indholdet i applikationen. Med JSX kunne jeg integrere HTML-lignende syntaks direkte i JavaScript, hvilket gjorde det lettere at læse og vedligeholde komponenterne.
+
+CSS:
+
+CSS har været vigtigt for at style elementerne og skabe et visuelt tiltalende layout.
+
+Tailwind CSS:
+
+Jeg valgte Tailwind CSS, fordi det gør styling hurtigere og mere effektivt. Det reducerer mængden af custom CSS, jeg skulle skrive. I nogle tilfælde
+
+JavaScript:
+
+JavaScript var grundlaget for at tilføje interaktivitet til applikationen. Det gjorde det muligt at implementere dynamiske funktioner som  håndtering af brugerinteraktioner, hvilket forbedrede brugeroplevelsen.
+
+Next.js:
+
+Jeg har valgt Next.js pga dens evne til server-side rendering og statisk site generation. Det gjorde det også nemmere at håndtere routing og API-interaktion.
+
+### Kode til særlig bedømmelse
+
+
+```javascript
+"use client";
+import React, { useEffect, useState } from 'react';
+import BackHeader from '../components/BackHeaderGrey';
+import ClassScheduleCard from '../components/ClassScheduleCard';
+
+const Schedule = () => {
+  const [classes, setClasses] = useState([]);
+
+  useEffect(() => {
+    
+    const storedClasses = [];
+    Object.keys(localStorage).forEach((key) => {
+      if (key.startsWith('class_')) {
+        const classData = JSON.parse(localStorage.getItem(key));
+        storedClasses.push(classData);
+      }
+    });
+    setClasses(storedClasses);
+  }, []);
+
+  return (
+    <div className="p-6 font-sans">
+      <BackHeader />
+      <h1 className="text-2xl ml-10 -mt-2 pb-6 font-semibold">My Schedule</h1>
+
+      {classes.length > 0 ? (
+  classes.map((classItem, index) => (
+    <ClassScheduleCard
+      key={classItem.id || index} 
+      id={classItem.id || index}  
+      className={classItem.className}
+      classDay={classItem.classDay}
+      classTime={classItem.classTime}
+    />
+  ))
+) : (
+  <p className="text-gray-500 mt-4">No classes scheduled.</p>
+)}
+
+    </div>
+  );
+};
+
+export default Schedule;
+
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# Schedule Komponent
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Oversigt
+Schedule-komponenten viser en liste over aktiviteter, som brugeren har gemt i deres browser. Den henter disse data fra LocaleStorage og præsenterer dem i et brugervenligt format.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Kodegennemgang
 
-## Learn More
+### Importerede Elementer
+- **React**: Grundlæggende bibliotek til at bygge brugerinterface.
+  - `useEffect`: Bruges til at udføre handlinger efter, at komponenten er monteret, såsom dataindlæsning.
+  - `useState`: Bruges til at oprette og administrere komponentens tilstand.
+- **Brugerdefinerede komponenter**:
+  - `BackHeader`: Navigationskomponent til at vende tilbage til forrige side.
+  - `ClassScheduleCard`: Komponent til at vise individuelle klasser i brugerens skema.
 
-To learn more about Next.js, take a look at the following resources:
+### Tilstandshåndtering
+- **`classes`**: En tilstandsvariabel, der gemmer de planlagte klasser. Den startes som en tom liste og opdateres, når der hentes data fra `localStorage`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Effect Hook
+- **`useEffect`**: Kører én gang, når komponenten indlæses. Den:
+  1. Opretter en tom liste `storedClasses` til at gemme de klasser, der hentes fra `localStorage`.
+  2. Gennemgår alle nøgler i `localStorage`.
+  3. Tjekker, om hver nøgle starter med `"class_"`, hvilket indikerer, at det er en gemt klasse.
+  4. Henter JSON-data for hver gemt klasse, konverterer den til et objekt og tilføjer den til `storedClasses`-listen.
+  5. Opdaterer `classes`-tilstanden med den opdaterede liste af klasser, der er hentet fra `localStorage`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Render
+- **Visning**:
+  - Viser en overskrift ("My Schedule") samt en liste over planlagte klasser.
+  - Hvis der er gemte klasser, vises de i individuelle `ClassScheduleCard`-komponenter, der viser detaljer som klasse navn, dag og tid.
+  - Hvis der ikke er nogen gemte klasser, vises en besked, der informerer brugeren om, at ingen klasser er planlagt.
 
-## Deploy on Vercel
+## Konklusion
+Schedule-komponenten er enkel og effektiv til at vise en liste over gemte klasser, så brugeren nemt kan se deres planlagte aktiviteter.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+
+
