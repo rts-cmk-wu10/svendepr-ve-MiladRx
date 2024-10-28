@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { FiArrowLeft } from 'react-icons/fi';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 const BackHeader = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -17,7 +18,6 @@ const BackHeader = () => {
 
   return (
     <>
-      
       <header className="fixed top-0 left-0 w-full flex justify-between items-center p-4 bg-transparent z-50">
         <button onClick={handleBack} className="text-white focus:outline-none">
           <FiArrowLeft className="h-8 w-8" />
@@ -35,7 +35,6 @@ const BackHeader = () => {
         </button>
       </header>
 
-   
       <nav
         className={`fixed top-0 right-0 w-full h-full bg-white text-black transform ${
           isNavOpen ? 'translate-x-0' : 'translate-x-full'
@@ -55,24 +54,24 @@ const BackHeader = () => {
 
         <ul className="flex flex-col items-center justify-start h-full pt-48 space-y-10">
           <li>
-            <a href="/home" className="text-2xl font-semibold hover:underline">
+            <Link href="/home" className="text-2xl font-semibold hover:underline">
               Home
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/search" className="text-2xl font-semibold hover:underline">
+            <Link href="/search" className="text-2xl font-semibold hover:underline">
               Search
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/schedule" className="text-2xl font-semibold hover:underline">
+            <Link href="/schedule" className="text-2xl font-semibold hover:underline">
               My Schedule
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/" className="text-2xl font-semibold hover:underline">
+            <Link href="/" className="text-2xl font-semibold hover:underline">
               Log out
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>
